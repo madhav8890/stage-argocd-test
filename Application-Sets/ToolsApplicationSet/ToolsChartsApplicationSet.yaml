@@ -1,35 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: helm-chart-applications
+  name: tools
   namespace: argocd
 spec:
   generators:
     - matrix:
         generators:
           - git:
-              repoURL: "https://github.com/madhav8890/argo-applicationSet.git"
+              repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: tools-charts/*
-          # - list:
-          #     elements:
-          #       - service: service-a
-          #       - service: service-b
+                - path: Application-enabled/Tools/*
   template:
     metadata:
-      # name: "{{service}}-{{path.basename}}"
       name: "{{path.basename}}"
     spec:
       project: default
       source:
-        repoURL: "https://github.com/madhav8890/argo-applicationSet.git"
+        repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
         targetRevision: main
         path: "{{path}}"
         helm:
           valueFiles:
             - "values.yaml"
-            # - "values-{{service}}.yaml"
       destination:
         server: "https://kubernetes.default.svc"
         namespace: "testns"
