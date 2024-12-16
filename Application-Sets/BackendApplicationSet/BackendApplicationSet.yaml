@@ -8,10 +8,10 @@ spec:
     - matrix:
         generators:
           - git:
-              repoURL: "https://github.com/madhav8890/argo-applicationSet.git"
+              repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: Application-enabled/Backend Application/*
+                - path: Application-enabled/Backend-Application/
           - list:
               elements:
                 - service: n-event-hub-web-value
@@ -22,13 +22,13 @@ spec:
     spec:
       project: default
       source:
-        repoURL: "https://github.com/madhav8890/argo-applicationSet.git"
+        repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
         targetRevision: main
         path: "{{path}}"
         helm:
           valueFiles:
             - "values.yaml"
-            - "Application-values/{{service}}.yaml"
+            - "../Application-values/{{service}}.yaml"
       destination:
         server: "https://kubernetes.default.svc"
         namespace: "testns"
