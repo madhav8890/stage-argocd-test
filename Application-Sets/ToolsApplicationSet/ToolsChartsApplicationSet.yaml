@@ -11,10 +11,13 @@ spec:
               repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: Application-enabled/Tools/*
+                - path: Application-available/Tools*
+          - list:
+              elements:
+                - environment: "dev"
   template:
     metadata:
-      name: "{{path.basename}}"
+      name: "{{environment}}-{{path.basename}}"
     spec:
       project: default
       source:
