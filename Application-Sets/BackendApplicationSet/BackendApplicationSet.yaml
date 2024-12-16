@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: backend-charts-application
+  name: backend-charts-application-1
   namespace: argocd
 spec:
   generators:
@@ -11,7 +11,7 @@ spec:
               repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: Application-enabled/backend-application/*
+                - path: Application-enabled/backend-application/backend/*
           - list:
               elements:
                 - service: n-event-hub-web-value
