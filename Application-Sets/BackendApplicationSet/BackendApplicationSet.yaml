@@ -11,7 +11,7 @@ spec:
               repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: Application-enabled/backend-application/
+                - path: Application-enabled/backend-application/*
           - list:
               elements:
                 - service: n-event-hub-web-value
