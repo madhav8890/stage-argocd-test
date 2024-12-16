@@ -11,7 +11,7 @@ spec:
               repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
               revision: main
               directories:
-                - path: Application-available/Tools*
+                - path: Application-available/tools*
           - list:
               elements:
                 - environment: "dev"
