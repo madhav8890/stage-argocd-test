@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/part-of: all-manifests-applications
-      name: "{{path.basename}}"
+      name: "{{path.basename | lower}}"
     spec:
       project: default
       source:
