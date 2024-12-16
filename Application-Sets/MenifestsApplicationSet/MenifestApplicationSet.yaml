@@ -9,12 +9,12 @@ spec:
         repoURL: "https://github.com/madhav8890/stage-argocd-test.git"
         revision: main
         directories:
-          - path: "Application-enabled/Manifests/*"
+          - path: "Application-available/Manifests-1/*"
   template:
     metadata:
       labels:
         app.kubernetes.io/part-of: all-manifests-applications
-      name: "{{path.basename | lower}}"
+      name: "{{path.basename}}"
     spec:
       project: default
       source:
